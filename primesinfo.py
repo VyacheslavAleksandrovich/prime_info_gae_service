@@ -10,6 +10,7 @@ from lib.primes import get_all_prime_to_num, get_two_opts
 primes = get_all_prime_to_num(999)
 
 class PrimeInfo(webapp2.RequestHandler):
+    
     def get(self):
         time_start = time()
         self.response.headers['Content-Type'] = 'application/json'
