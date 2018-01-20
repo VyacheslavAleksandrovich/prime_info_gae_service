@@ -27,7 +27,10 @@ class PrimeInfo(webapp2.RequestHandler):
             self.response.out.write(json.dumps(obj))
         else:
             index = bisect_left(primes, num)
-            is_prime = primes[index] == num
+            try:
+                is_prime = primes[index] == num
+            except IndexError:
+                is_prime = False
             if not is_prime and num > 20:
                 opt1, opt2 = get_two_opts(num, primes)
             processing_time = int((time() - time_start) * 1000)
